@@ -12,7 +12,7 @@ public class BussinessRules {
 			case FIN: return currentState == StateType.TBR || currentState == StateType.WFS;
 			case WFT: return currentState == StateType.FIN || currentState == StateType.TBR
 					|| currentState == StateType.INS;
-			case PRC: return currentState == StateType.VIC;
+			case PRC: return currentState == StateType.VIC || currentState == StateType.ANS;
 			case AOC: return currentState == StateType.APS || currentState == StateType.PRC;
 			case APS: return currentState == StateType.AOC || currentState == StateType.PRC;
 			case INS: return currentState == StateType.APS || currentState == StateType.PRC 
@@ -43,7 +43,7 @@ public class BussinessRules {
 	 */
 	public static Boolean stateCanBeModifiedByInterviewer(StateType currentState, StateType targetState) {
 		switch(targetState) {
-			case PRC: return currentState == StateType.VIC;
+			case PRC: return currentState == StateType.VIC || currentState == StateType.ANS;
 			case AOC: return currentState == StateType.APS || currentState == StateType.PRC;
 			case APS: return currentState == StateType.AOC || currentState == StateType.PRC;
 			case INS: return currentState == StateType.APS || currentState == StateType.PRC 
